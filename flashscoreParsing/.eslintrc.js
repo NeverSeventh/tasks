@@ -8,8 +8,11 @@ module.exports = {
   ],
   parserOptions: {
     ecmaVersion: 12,
-    s
   },
   rules: {
+    'linebreak-style': 0,
+    'no-console': 'off',
+    'consistent-return': 'off',
+    'no-inner-declarations': 'off',
   },
 };
