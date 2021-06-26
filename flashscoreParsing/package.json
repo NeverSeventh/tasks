@@ -1,5 +1,5 @@
 {
-  "name": "flashscoreParsing",
+  "name": "flashscoreparsing",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,5 +16,10 @@
     "morgan": "^1.10.0",
     "mysql2": "^2.2.5",
     "puppeteer": "^10.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^7.29.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.23.4"
   }
 }

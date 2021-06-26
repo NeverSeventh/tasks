@@ -4,15 +4,21 @@ const db = getDb.getDb();
 class Team {
     static async insertTeam(name,country,logo) {
         try {
-            const response = await db.query('insert into team (name,country,logo) values (?,?,?)',[name,country,logo]);
+            const team = await db.query('select id from team where name=?',[name]);
+            
+            if (!team[0]) {
+                if (typeof country !== 'string' || typeof name !== 'string' || typeof logo !== 'string') throw new Error('Неправильный формат данных')
+            
+                const response = await db.query('insert into team (name,country,logo) values (?,?,?)',[name,country,logo]);
+    
+                return response.insertId;
+            }
+            else return 'Такая команда уже есть';
 
-            return response.insertId;
+
             
         } catch (e) {
-            if (e.errno === 1062) {
-                return 'Такая команда уже существует'
-            }
-            
+            return e.message
         }
     }
 }
