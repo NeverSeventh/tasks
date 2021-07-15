@@ -1,0 +1,27 @@
+.contacts {
+  margin-top: 20px;
+  margin-left: 30px;
+  max-width: 600px;
+
+  h1 {
+    margin-bottom: 20px;
+  }
+
+  &__search {
+    width: 100%;
+  }
+
+  &__container {
+    margin-top: 20px;
+  }
+
+  &__add {
+    margin-top: 20px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #3dc754;
+    font-size: 16px;
+    color: white;
+  }
+}

@@ -1,0 +1,145 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "admin",
+      "password": "admin"
+    },
+    {
+      "id": "2",
+      "name": "john",
+      "password": "Cena"
+    },
+    {
+      "id": "3",
+      "name": "neverseventh",
+      "password": "Ever"
+    },
+    {
+      "id": "4",
+      "name": "arya",
+      "password": "Stark"
+    }
+  ],
+  "contacts": [
+    {
+      "name": "Елена",
+      "number": "+7(985) 123 66 44",
+      "email": "elena@main.ru",
+      "org": "",
+      "id": "0"
+    },
+    {
+      "id": "1",
+      "userid": "1",
+      "number": "+7(985) 123 66 21",
+      "name": "Андрей Кравивцев",
+      "email": "andrey@andrey.com",
+      "org": "Организация Андреев"
+    },
+    {
+      "id": "2",
+      "userid": "1",
+      "number": "+7(985) 123 66 44",
+      "name": "Кристал Фокс",
+      "email": "fox@gmail.com",
+      "org": ""
+    },
+    {
+      "name": "Джон Эйбер",
+      "userid": "1",
+      "number": "+7(985) 123 66 44",
+      "email": "john@gmail.com",
+      "org": "John&John&John",
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "userid": "1",
+      "number": "+7(985) 123 66 44",
+      "name": "Ричард Страус",
+      "email": "Cplusplus@gmail.c",
+      "org": ""
+    },
+    {
+      "id": "6",
+      "userid": "3",
+      "number": "+7(985) 123 66 44",
+      "name": "Алекс Марадонна",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "7",
+      "userid": "2",
+      "number": "+7(985) 123 66 44",
+      "name": "Карина Ивановна",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "10",
+      "userid": "2",
+      "number": "+7(985) 123 66 44",
+      "name": "John",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "12",
+      "userid": "2",
+      "number": "+7(985) 123 66 44",
+      "name": "Web",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "13",
+      "userid": "5",
+      "number": "+7(985) 123 66 44",
+      "name": "Closure",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "14",
+      "userid": "3",
+      "number": "+7(985) 123 66 44",
+      "name": "Иван",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "16",
+      "userid": "2",
+      "number": "+7(985) 123 66 44",
+      "name": "Олег",
+      "email": "",
+      "org": ""
+    },
+    {
+      "id": "18",
+      "userid": "2",
+      "number": "+7(985) 123 66 44",
+      "name": "Маша",
+      "email": "",
+      "org": ""
+    },
+    {
+      "userid": "4",
+      "name": "Father",
+      "number": "+7 666 322 23 13",
+      "email": "",
+      "org": "",
+      "id": "VIzbRaF"
+    },
+    {
+      "userid": "1",
+      "name": "Илья Логвинов",
+      "number": "+7 985 118 79 21",
+      "email": "logvinovil2000@gmail.com",
+      "org": "",
+      "id": "hlqGJ4v"
+    }
+  ]
+}

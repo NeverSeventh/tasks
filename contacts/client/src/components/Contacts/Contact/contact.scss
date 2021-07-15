@@ -1,0 +1,48 @@
+.contact {
+  margin: 20px 0;
+  font-size: 20px;
+  border: 1px solid black;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 1px 0px 0.5px black;
+  &__row {
+    display: flex;
+    margin-bottom: 15px;
+    justify-content: space-between;
+    margin-top: 15px;
+  }
+
+  &__number {
+  }
+
+  &__email {
+    margin-bottom: 10px;
+  }
+
+  &__btn {
+    margin-top: 20px;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+    &--edit {
+    }
+
+    &--delete {
+      background-color: rgb(240, 51, 51);
+      color: white;
+    }
+
+    &:focus {
+      box-shadow: 0 0 0 1px black;
+      outline: none;
+      border-radius: 10px;
+    }
+  }
+
+  input {
+    display: block;
+    padding: 10px;
+    font-size: 16px;
+  }
+}
