@@ -3,19 +3,21 @@ import { useState } from "react";
 
 
 const ContactForm = ({contact,submitHandler}) => {
-    const [name,setName] = useState(contact.name || '');
-    const [number,setNumber] = useState(contact.number || '');
-    const [email,setEmail] = useState(contact.email || '');
-    const [org,setOrg] = useState(contact.org || '');
+    const [name,setName] = useState(contact.name);
+    const [number,setNumber] = useState(contact.number);
+    const [email,setEmail] = useState(contact.email);
+    const [org,setOrg] = useState(contact.org);
     
 
     const formHandler = (e) => {
         e.preventDefault();
-        contact.name = name;
-        contact.number = number;
-        contact.email = email;
-        contact.org = org;
-        submitHandler(contact);
+        const edited={id:contact.id};
+        if (name!== contact.name ) edited.name = name;
+       
+        if (number !== contact.number)  edited.number=number;
+        if (email !== contact.email)  edited.email = email;
+        if (org !== contact.org) edited.org = org;
+        submitHandler(edited);
     }
 
 

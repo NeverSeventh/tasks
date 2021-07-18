@@ -27,36 +27,54 @@ const editContactActionCreator = (payload) => {
 
 
 const fetchContacts = () => async(dispatch,getState) => {
-    const responce = await fetch(`http://localhost:3004/contacts?userid=${getState().user?.id}`);
-    const contacts = await responce.json();
-    dispatch(contactsActionCreator(contacts));
+    const responce = await fetch(`http://localhost:6970/contacts`,{
+        method:'GET',
+        headers:{"authorization":`${localStorage.getItem('token')}`}
+    });
+    if (responce.status===200) {
+        const contacts = await responce.json();
+        dispatch(contactsActionCreator(contacts));
+    }
+
 }
 
-const fetchEditContact = ({name,number,email,org,id}) => async(dispatch,getState) => {
-    const responce = await fetch(`http://localhost:3004/contacts/${id}`, {
+const fetchEditContact = ({id,name,number,email,org}) => async(dispatch,getState) => {
+
+    const responce = await fetch(`http://localhost:6970/contacts/edit`, {
         method:"PATCH",
-        headers: {"Content-Type": "application/json"},
-        body:JSON.stringify({name,number,email,org})
+        headers: {"Content-Type": "application/json",
+        "authorization":`${localStorage.getItem('token')}`
+    },
+        body:JSON.stringify({contactid:id,name,number,email,org})
 
     })
-    const status =  await responce.json();
-    if (status) {
-        dispatch(editContactActionCreator(status))
+   
+    if (responce.status===200) {
+        const contact =  await responce.json();
+        console.log(contact);
+        contact.id = id;
+        dispatch(editContactActionCreator(contact))
     }
 }
 
 const fetchDeleteContact = (id) => async(dispatch,getState)=> {
-    const responce = await fetch(`http://localhost:3004/contacts/${id}`, {
+    const responce = await fetch(`http://localhost:6970/contacts/${id}`, {
         method:"DELETE",
+        headers:{"authorization":`${localStorage.getItem('token')}`}
     })
-    dispatch(deleteContactActionCreator(id));
+    if (responce.status ===200) {
+        dispatch(deleteContactActionCreator(id));
+    }
+    
 }
 
 const fetchAddContact = ({name,number,email,org}) => async(dispatch,getState)=> {
-    const responce = await fetch(`http://localhost:3004/contacts/`, {
+    const responce = await fetch(`http://localhost:6970/contacts/add`, {
         method:"POST",
-        headers: {"Content-Type": "application/json"},
-        body:JSON.stringify({userid:getState().user.id,name,number,email,org})
+        headers: {"Content-Type": "application/json",
+                "authorization":`${localStorage.getItem('token')}`
+    },
+        body:JSON.stringify({name,number,email,org})
 
     }) 
     const res = await responce.json();
@@ -64,7 +82,7 @@ const fetchAddContact = ({name,number,email,org}) => async(dispatch,getState)=> 
 }
 
 const fetchSearchContacts = (value) => async(dispatch,getState) => {
-    const responce = await fetch(`http://localhost:3004/contacts?userid=${getState().user.id}&number_like=${value}`)
+    const responce = await fetch(`http://localhost:6970/contacts`)
     const data = await responce.json();
     dispatch(contactsActionCreator(data));
 }

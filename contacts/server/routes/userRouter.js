@@ -46,7 +46,7 @@ router.post('/login',async(req,res)=> {
         if (!compare) throw new LoginError('Wrong password');
 
         const token = createToken({userid:user.id},'secret',{ expiresIn: 86400})
-        return res.status(200).json({userid:user.id,token});
+        return res.status(200).json({name:user.name,userid:user.id,token});
         
         
     } catch (e) {

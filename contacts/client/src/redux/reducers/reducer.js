@@ -49,7 +49,12 @@ const reducer = (state=[],action)=> {
             return {
                 ...state,
                 contacts:state.contacts.map(el=>{
-                    if (el.id === action.payload?.id) return action.payload;
+                    if (el.id === action.payload?.id) {
+                        for (let key in action.payload) {
+                            if (key !== 'id') el[key] = action.payload[key];
+                            
+                        }
+                    };
                     return el
                 })
             }

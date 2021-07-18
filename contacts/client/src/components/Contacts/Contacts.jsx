@@ -17,7 +17,7 @@ const Contacts = () => {
     const [add,setAdd] = useState(false);
     
     useEffect(()=> {
-        if (!user) {
+        if (!localStorage.getItem('token')) {
             dispatch(redirectActionCreator('/login'));
         }else {
             dispatch(fetchContacts());
@@ -34,6 +34,7 @@ const Contacts = () => {
     }
 
     const editContactHandler = (contact) => {
+
         dispatch(fetchEditContact(contact))
 
     }
