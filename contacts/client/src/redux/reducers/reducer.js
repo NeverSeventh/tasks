@@ -1,4 +1,4 @@
-import { ADD_CONTACT, CONTACTS, DELETE_CONTACT, EDIT_CONTACT, LOGIN, LOGOUT, REDIRECT } from "../types";
+import { ADD_CONTACT, CONTACTS, DELETE_CONTACT, EDIT_CONTACT, ERROR, LOGIN, LOGOUT, REDIRECT } from "../types";
 
 
 
@@ -68,6 +68,16 @@ const reducer = (state=[],action)=> {
 
 
         //------------------------
+        
+        //ERROR
+
+        case ERROR: {
+            return {
+                ...state,
+                error:action.payload
+            }
+        }
+
 
         default:
             return state;

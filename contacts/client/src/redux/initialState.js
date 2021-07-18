@@ -5,7 +5,7 @@ const initialState = {
     user:null,
     contacts:undefined,
     currentContact:null,
-    errorMessg:null,
+    error:'',
     loading:false,
     redirect:''
 }

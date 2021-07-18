@@ -1,4 +1,5 @@
 import { LOGIN } from "../types"
+import { errorActionCreator } from "./error"
 import { redirectActionCreator } from "./redirect"
 
 
@@ -25,7 +26,7 @@ const fetchLogin = (name,password) => async(dispatch,getState)=> {
         dispatch(loginActionCreator(user));
         dispatch(redirectActionCreator('/contacts'));
     }else {
-
+        dispatch(errorActionCreator('wrong login or password'))
     }
 }
 

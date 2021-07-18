@@ -6,6 +6,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import { redirectActionCreator } from "./redux/AC/redirect";
 import { useEffect } from "react";
 import './app.scss';
+import { errorActionCreator } from "./redux/AC/error";
 function App() {
 
   const redirect = useSelector(state => state.redirect)
@@ -18,6 +19,7 @@ function App() {
     if (redirect) {
       history.push(redirect);
       dispatch(redirectActionCreator(''));
+      dispatch(errorActionCreator(''));
     }
   },[redirect])
 

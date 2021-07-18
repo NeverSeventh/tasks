@@ -2,20 +2,18 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { errorActionCreator } from "../../redux/AC/error";
 import { fetchLogin } from "../../redux/AC/login";
-import './login.scss';
 
 
 
 
-const Login = () => {
+
+const Signup = () => {
     const dispatch = useDispatch();
     const [name,setName] = useState('');
     const [password,setPassword] = useState('');
     const error = useSelector(state=>state.error)
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        dispatch(errorActionCreator(''));
-        dispatch(fetchLogin(name,password));
         
     }
     
@@ -32,4 +30,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default Signup;
