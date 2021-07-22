@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { errorActionCreator } from "../../redux/AC/error";
 import { fetchLogin } from "../../redux/AC/login";
@@ -18,6 +18,13 @@ const Login = () => {
         dispatch(fetchLogin(name,password));
         
     }
+
+    useEffect(()=>{
+        
+        dispatch(errorActionCreator(''));
+
+    
+    },[])
     
     return (
         <form className="login" onSubmit={onSubmitHandler} >

@@ -6,6 +6,8 @@ import Contact from "./Contact/Contact";
 import ContactForm from "./ContactForm/ContactForm";
 import ContactsSearch from "./ContactsSearch/ContactsSearch";
 import './contacts.scss'
+import AllContacts from "./AllContacts/AllContacts";
+import Loader from "../Loader/Loader";
 
 
 
@@ -26,7 +28,7 @@ const Contacts = () => {
 
         
 
-    },[]);
+    },[user]);
 
     const addContactHandler = (newContact) => {
         setAdd(false);
@@ -43,30 +45,28 @@ const Contacts = () => {
         dispatch(fetchDeleteContact(id));
     }
 
-    const searchContactHandler = (value) => {
-        dispatch(fetchSearchContacts(value));
-    }
+
 
 
     const contactsElements = contacts?.map(el=> {
         return <li key={el.id} > <Contact contact={el} deleteContact={deleteContactHandler} editContact={editContactHandler}   /></li>
     })
 
-
+    const cancelAdd = () => {
+        setAdd(false);
+    }
     
 
 
     return (
         <div className="contacts">
             <h1>Контакты</h1>
-            <div className="contacts__search">
-               <ContactsSearch searchContact={searchContactHandler}/>
-            </div>
-            {add ? <ContactForm contact={{}} submitHandler={addContactHandler}/> : <button onClick={()=>setAdd(true)} className="contacts__add">Добавить контакт</button>}
+            {add ? <ContactForm contact={{}} cancelHandler={cancelAdd} submitHandler={addContactHandler}/> : <button onClick={()=>setAdd(true)} className="contacts__add">Добавить контакт</button>}
             
             <div className="contacts__container">
                 <ul className="contacts__list">
-                    {contactsElements}
+                    <Loader Component={AllContacts} allContacts={contactsElements} />
+                    
                 </ul> 
             </div>
         </div>

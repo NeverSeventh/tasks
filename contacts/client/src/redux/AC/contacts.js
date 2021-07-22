@@ -1,4 +1,5 @@
 import { ADD_CONTACT, CONTACTS, DELETE_CONTACT, EDIT_CONTACT } from "../types"
+import { loadingActionCreator } from "./loading"
 
 
 
@@ -27,6 +28,7 @@ const editContactActionCreator = (payload) => {
 
 
 const fetchContacts = () => async(dispatch,getState) => {
+    dispatch(loadingActionCreator(true));
     const responce = await fetch(`http://localhost:6970/contacts`,{
         method:'GET',
         headers:{"authorization":`${localStorage.getItem('token')}`}
@@ -35,6 +37,7 @@ const fetchContacts = () => async(dispatch,getState) => {
         const contacts = await responce.json();
         dispatch(contactsActionCreator(contacts));
     }
+    dispatch(loadingActionCreator(false));
 
 }
 
@@ -68,6 +71,8 @@ const fetchDeleteContact = (id) => async(dispatch,getState)=> {
     
 }
 
+
+
 const fetchAddContact = ({name,number,email,org}) => async(dispatch,getState)=> {
     const responce = await fetch(`http://localhost:6970/contacts/add`, {
         method:"POST",
@@ -88,4 +93,4 @@ const fetchSearchContacts = (value) => async(dispatch,getState) => {
 }
 
 
-export {fetchContacts,fetchEditContact,fetchDeleteContact,fetchAddContact,fetchSearchContacts};
+export {fetchContacts,fetchEditContact,fetchDeleteContact,fetchAddContact,fetchSearchContacts,contactsActionCreator};

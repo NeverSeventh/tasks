@@ -24,11 +24,13 @@ const Contact = ({contact,editContact,deleteContact}) => {
         deleteContact(contact.id);
     }
      
-    
+    const cancelUpdate= () => {
+        setUpdate(false)
+    }
 
     return (
         <>
-       {update ? <ContactForm contact={contact} submitHandler={updateContact}/> :<div  className="contact"> 
+       {update ? <ContactForm contact={contact} cancelHandler={cancelUpdate} submitHandler={updateContact}/> :<div  className="contact"> 
             <div className="contact__row">
             <div className="contact__name">{contact.name}</div>
             <div className="contact__number">{contact.number}</div>

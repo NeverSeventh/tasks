@@ -1,6 +1,8 @@
 const LOGIN = 'LOGIN';
 const LOGOUT = 'LOGOUT';
 
+const USER = 'USER';
+
 const ERROR = 'ERROR';
 const NO_ERROR = 'NO_ERROR';
 
@@ -11,6 +13,7 @@ const DELETE_CONTACT = 'DELETE_CONTACT';
 const REDIRECT = 'REDIRECT';
 const SEARCH_CONTACT = 'SEARCH_CONTACT';
 
+const LOADING = "LOADING";
 
 export {
     LOGIN,
@@ -21,5 +24,7 @@ export {
     ADD_CONTACT,
     EDIT_CONTACT,
     DELETE_CONTACT,
-    REDIRECT
+    REDIRECT,
+    LOADING,
+    USER
 }

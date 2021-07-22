@@ -51,7 +51,7 @@ router.post('/login',async(req,res)=> {
         
     } catch (e) {
         if (e instanceof EmptyFieldError) return res.status(404).json('Every field must be filled');
-        if (e instanceof LoginError) return res.status(404).json(e.message);
+        if (e instanceof LoginError) return res.status(401).json(e.message);
         res.status(500).json(e.message);
     }
 })
@@ -75,7 +75,7 @@ router.post('/signup',async(req,res)=> {
     } catch (e) {
         console.log(e);
         if (e instanceof EmptyFieldError) return res.status(404).json('Every field must be filled');
-        if (e instanceof SignUpError) return res.status(404).json(e.message);
+        if (e instanceof SignUpError) return res.status(401).json(e.message);
         
         return res.status(500).json('error');
         

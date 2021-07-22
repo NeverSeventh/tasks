@@ -1,4 +1,4 @@
-import { ADD_CONTACT, CONTACTS, DELETE_CONTACT, EDIT_CONTACT, ERROR, LOGIN, LOGOUT, REDIRECT } from "../types";
+import { ADD_CONTACT, CONTACTS, DELETE_CONTACT, EDIT_CONTACT, ERROR, LOADING, LOGIN, LOGOUT, REDIRECT, USER } from "../types";
 
 
 
@@ -25,6 +25,15 @@ const reducer = (state=[],action)=> {
 
         //--------------------------
         
+        //User
+            case USER:
+                return {
+                    ...state,
+                    user:action.payload
+                }
+
+        //
+
         //CONTACTS
         case CONTACTS:
             return {
@@ -83,6 +92,15 @@ const reducer = (state=[],action)=> {
             }
         }
 
+        //---------------------------
+
+        //Loading
+
+        case LOADING: 
+            return {
+                ...state,
+                loading:action.payload
+            }
 
         default:
             return state;
